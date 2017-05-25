@@ -1,0 +1,247 @@
+export interface AllocsType {
+	allocAccount: null | string;
+	allocAcctIDSource: null | number;
+	allocSettlCurrency: null | number;
+	individualAllocID: null | string;
+	noNestedPartyIDs: null | number;
+	allocQty: null | number;
+}
+
+export interface StipulationsType {
+	stipulationType: null | string;
+	stipulationValue: null | string;
+}
+
+export interface TradingSessionsType {
+	tradingSessionID: null | string;
+	tradingSessionSubID: null | string;
+}
+
+export interface PartyIDsType {
+	partyID: null | string;
+	partyIDSource: null | string;
+	partyRole: null | number;
+	noPartySubIDs: null | number;
+}
+
+export interface SecurityAltIDType {
+	securityAltID: null | string;
+	securityAltIDSource: null | string;
+}
+
+export interface UnderlyingsType {
+	underlyingSymbol: null | string;
+	underlyingSymbolSfx: null | string;
+	underlyingSecurityID: null | string;
+	underlyingSecurityIDSource: null | string;
+	noUnderlyingSecurityAltID: null | number;
+	underlyingProduct: null | number;
+	underlyingCFICode: null | string;
+	underlyingSecurityType: null | string;
+	underlyingSecuritySubType: null | string;
+	underlyingMaturityMonthYear: null | string;
+	underlyingMaturityDate: null | string;
+	underlyingPutOrCall: null | number;
+	underlyingCouponPaymentDate: null | string;
+	underlyingIssueDate: null | string;
+	underlyingRepoCollateralSecurityType: null | string;
+	underlyingRepurchaseTerm: null | number;
+	underlyingRepurchaseRate: null | number;
+	underlyingFactor: null | number;
+	underlyingCreditRating: null | string;
+	underlyingInstrRegistry: null | string;
+	underlyingCountryOfIssue: null | string;
+	underlyingStateOrProvinceOfIssue: null | string;
+	underlyingLocaleOfIssue: null | string;
+	underlyingRedemptionDate: null | string;
+	underlyingStrikePrice: null | number;
+	underlyingStrikeCurrency: null | number;
+	underlyingOptAttribute: null | string;
+	underlyingContractMultiplier: null | number;
+	underlyingCouponRate: null | number;
+	underlyingSecurityExchange: null | string;
+	underlyingIssuer: null | string;
+	encodedUnderlyingIssuerLen: null | number;
+	encodedUnderlyingIssuer: null | Buffer;
+	underlyingSecurityDesc: null | string;
+	encodedUnderlyingSecurityDescLen: null | number;
+	encodedUnderlyingSecurityDesc: null | Buffer;
+	underlyingCPProgram: null | string;
+	underlyingCPRegType: null | string;
+	underlyingCurrency: null | number;
+	underlyingQty: null | number;
+	underlyingPx: null | number;
+	underlyingDirtyPrice: null | number;
+	underlyingEndPrice: null | number;
+	underlyingStartValue: null | number;
+	underlyingCurrentValue: null | number;
+	underlyingEndValue: null | number;
+	noUnderlyingStips: null | number;
+}
+
+export interface EventsType {
+	eventType: null | number;
+	eventDate: null | string;
+	eventPx: null | number;
+	eventText: null | string;
+}
+
+export interface NewOrderSingle {
+	account: null | string;
+	clOrdID: string;
+	commission: null | number;
+	commType: null | string;
+	currency: null | number;
+	execInst: null | string[];
+	handlInst: null | string;
+	securityIDSource: null | string;
+	iOIID: null | string;
+	orderQty: null | number;
+	ordType: string;
+	price: null | number;
+	securityID: null | string;
+	side: string;
+	symbol: string;
+	text: null | string;
+	timeInForce: null | string;
+	transactTime: string;
+	settlType: null | string;
+	settlDate: null | string;
+	symbolSfx: null | string;
+	allocID: null | string;
+	tradeDate: null | string;
+	positionEffect: null | string;
+	noAllocs: null | AllocsType[];
+	processCode: null | string;
+	stopPx: null | number;
+	exDestination: null | string;
+	issuer: null | string;
+	securityDesc: null | string;
+	minQty: null | number;
+	maxFloor: null | number;
+	locateReqd: null | boolean;
+	quoteID: null | string;
+	settlCurrency: null | number;
+	forexReq: null | boolean;
+	expireTime: null | string;
+	prevClosePx: null | number;
+	cashOrderQty: null | number;
+	securityType: null | string;
+	effectiveTime: null | string;
+	orderQty2: null | number;
+	settlDate2: null | string;
+	maturityMonthYear: null | string;
+	putOrCall: null | number;
+	strikePrice: null | number;
+	coveredOrUncovered: null | number;
+	optAttribute: null | string;
+	securityExchange: null | string;
+	maxShow: null | number;
+	pegOffsetValue: null | number;
+	spread: null | number;
+	benchmarkCurveCurrency: null | number;
+	benchmarkCurveName: null | string;
+	benchmarkCurvePoint: null | string;
+	couponRate: null | number;
+	couponPaymentDate: null | string;
+	issueDate: null | string;
+	repurchaseTerm: null | number;
+	repurchaseRate: null | number;
+	factor: null | number;
+	tradeOriginationDate: null | string;
+	contractMultiplier: null | number;
+	noStipulations: null | StipulationsType[];
+	yieldType: null | string;
+	yield: null | number;
+	repoCollateralSecurityType: null | string;
+	redemptionDate: null | string;
+	creditRating: null | string;
+	encodedIssuerLen: null | number;
+	encodedIssuer: null | Buffer;
+	encodedSecurityDescLen: null | number;
+	encodedSecurityDesc: null | Buffer;
+	encodedTextLen: null | number;
+	encodedText: null | Buffer;
+	complianceID: null | string;
+	solicitedFlag: null | boolean;
+	noTradingSessions: null | TradingSessionsType[];
+	discretionInst: null | string;
+	discretionOffsetValue: null | number;
+	priceType: null | number;
+	gTBookingInst: null | number;
+	expireDate: null | string;
+	noPartyIDs: null | PartyIDsType[];
+	noSecurityAltID: null | SecurityAltIDType[];
+	product: null | number;
+	cFICode: null | string;
+	roundingDirection: null | string;
+	roundingModulus: null | number;
+	countryOfIssue: null | string;
+	stateOrProvinceOfIssue: null | string;
+	localeOfIssue: null | string;
+	commCurrency: null | number;
+	cancellationRights: null | string;
+	moneyLaunderingStatus: null | string;
+	designation: null | string;
+	fundRenewWaiv: null | string;
+	registID: null | string;
+	orderPercent: null | number;
+	secondaryClOrdID: null | string;
+	orderCapacity: null | string;
+	orderRestrictions: null | string[];
+	maturityDate: null | string;
+	instrRegistry: null | string;
+	cashMargin: null | string;
+	accountType: null | number;
+	custOrderCapacity: null | number;
+	clOrdLinkID: null | string;
+	dayBookingInst: null | string;
+	bookingUnit: null | string;
+	preallocMethod: null | string;
+	clearingFeeIndicator: null | string;
+	price2: null | number;
+	acctIDSource: null | number;
+	benchmarkPrice: null | number;
+	benchmarkPriceType: null | number;
+	contractSettlMonth: null | string;
+	pool: null | string;
+	yieldRedemptionDate: null | string;
+	yieldRedemptionPrice: null | number;
+	yieldRedemptionPriceType: null | number;
+	benchmarkSecurityID: null | string;
+	yieldCalcDate: null | string;
+	noUnderlyings: null | UnderlyingsType[];
+	benchmarkSecurityIDSource: null | string;
+	securitySubType: null | string;
+	bookingType: null | number;
+	terminationType: null | number;
+	pegMoveType: null | number;
+	pegOffsetType: null | number;
+	pegLimitType: null | number;
+	pegRoundDirection: null | number;
+	pegScope: null | number;
+	discretionMoveType: null | number;
+	discretionOffsetType: null | number;
+	discretionLimitType: null | number;
+	discretionRoundDirection: null | number;
+	discretionScope: null | number;
+	targetStrategy: null | number;
+	targetStrategyParameters: null | string;
+	participationRate: null | number;
+	qtyType: null | number;
+	noEvents: null | EventsType[];
+	datedDate: null | string;
+	interestAccrualDate: null | string;
+	cPProgram: null | number;
+	cPRegType: null | string;
+	marginRatio: null | number;
+	agreementDesc: null | string;
+	agreementID: null | string;
+	agreementDate: null | string;
+	startDate: null | string;
+	endDate: null | string;
+	agreementCurrency: null | number;
+	deliveryType: null | number;
+	strikeCurrency: null | number;
+}
+
