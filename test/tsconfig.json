@@ -3,11 +3,9 @@
         "module": "commonjs",
         "target": "es5",
         "noImplicitAny": false,
-        "sourceMap": false,
-        "declaration": true,
-        "outDir": "lib"
+        "sourceMap": false
     },
     "files": [
-        "src/index.ts","src/model.ts"
+        "test.ts"
     ]
 }

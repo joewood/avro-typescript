@@ -2,7 +2,12 @@
 	"type": "record",
 	"name": "NewOrderSingle",
 	"fields": [
-		{ "name": "account" , "default": null, "fixTag": 1, "fixType": "STRING", "type": [ "null", "string" ] },
+		{ "name": "account" , "default": null, "fixTag": 1, "fixType": "STRING", "type": [ 
+			"null", 
+			"string",
+			{ "type":"enum","symbols":["ONE","TWO"],"name":"numb"} 
+			] 
+		},
 		{ "name": "clOrdID" , "fixTag": 11, "fixType": "STRING", "type": "string" },
 		{ "name": "commission" , "default": null, "fixTag": 12, "fixType": "AMT", "type": [ "null", "double" ] },
 		{ "name": "commType" , "default": null, "fixTag": 13, "fixType": "CHAR", "type": [ "null", "string" ] },
@@ -25,7 +30,10 @@
 		{ "name": "symbolSfx" , "default": null, "fixTag": 65, "fixType": "STRING", "type": [ "null", "string" ] },
 		{ "name": "allocID" , "default": null, "fixTag": 70, "fixType": "STRING", "type": [ "null", "string" ] },
 		{ "name": "tradeDate" , "default": null, "fixTag": 75, "fixType": "LOCALMKTDATE", "type": [ "null", "string" ] },
-		{ "name": "positionEffect" , "default": null, "fixTag": 77, "fixType": "CHAR", "type": [ "null", "string" ] },
+		{ "name": "positionEffect" , "default": null, "fixTag": 77, "fixType": "CHAR", "type": [ "null", "string", {
+			"type":"map",
+			"values":"numb"
+		} ] },
 		{ "name": "noAllocs" , "items": {
 			"type": "record",
 			"name": "AllocsType",

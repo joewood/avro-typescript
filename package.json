@@ -2,17 +2,18 @@
   "name": "avro-typescript",
   "version": "0.0.1",
   "description": "TypeSript code generator for Apache Avro types",
-  "main": "lib/index.js",
+  "main": "./lib/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "test/test.js"
+    "test": "tsc -p test/ & node test/test.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joewood/avro-typescript.git"
   },
+  "types":"./lib/index.d.ts",
   "keywords": [
     "avro",
     "typescript"
