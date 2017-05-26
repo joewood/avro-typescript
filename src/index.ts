@@ -1,7 +1,7 @@
 import { Type, Field, isRecordType, isArrayType, isEnumType, isMapType, RecordType, EnumType } from "./model"
-export { RecordType, Type } from "./model"
+export { RecordType } from "./model"
 /** Convert a primitive type from avro to TypeScript */
-export function convertPrimitive(avroType: string): string {
+function convertPrimitive(avroType: string): string {
     switch (avroType) {
         case "long":
         case "int":
@@ -19,8 +19,16 @@ export function convertPrimitive(avroType: string): string {
     }
 }
 
+/** Converts an Avro record type to a TypeScript file */
+export function avroToTypeScript( recordType:RecordType): string {
+    const output :string[] = [];
+    convertRecord(recordType,output);
+    return output.join("\n");
+}
+
+
 /** Convert an Avro Record type. Return the name, but add the definition to the file */
-export function convertRecord(recordType: RecordType, fileBuffer: string[]): string {
+function convertRecord(recordType: RecordType, fileBuffer: string[]): string {
     let buffer = `export interface ${recordType.name} {\n`;
     for (let field of recordType.fields) {
         buffer += convertFieldDec(field, fileBuffer) + "\n";
@@ -31,14 +39,14 @@ export function convertRecord(recordType: RecordType, fileBuffer: string[]): str
 }
 
 /** Convert an Avro Enum type. Return the name, but add the definition to the file */
-export function convertEnum(enumType: EnumType, fileBuffer: string[]): string {
+function convertEnum(enumType: EnumType, fileBuffer: string[]): string {
     const enumDef = `export enum ${enumType.name} { ${enumType.symbols.join(", ")} };\n`;
     fileBuffer.push(enumDef);
     return enumType.name;
 }
 
 
-export function convertType(type: Type, buffer: string[]): string {
+function convertType(type: Type, buffer: string[]): string {
     // if it's just a name, then use that
     if (typeof type === "string") {
         return convertPrimitive(type) || type;

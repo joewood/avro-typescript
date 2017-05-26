@@ -1,0 +1,41 @@
+{
+	"type": "record",
+	"name": "ExampleType",
+	"fields": [
+		{ "name": "unionEnum" , "default": null, "type": [ 
+			"null", 
+			"string",
+			{ "type":"enum","symbols":["ONE","TWO"],"name":"numberEnumType"} 
+			] 
+		},
+		{ "name": "mandatoryString" ,  "type": "string" },
+		{ "name": "adouble" , "default": null,  "type": [ "null", "double" ] },
+		{ "name": "astring" , "default": null, "type": [ "null", "string" ] },
+		{ "name": "amap" , "default": null,  "type": [ "null", "string", {
+			"type":"map",
+			"values":"numberEnumType"
+		} ] },
+		{ "name": "recordArray" , "items": {
+			"type": "record",
+			"name": "AllocsType",
+			"fields": [
+				{ "name": "allocAccount" , "default": null,  "type": [ "null", "string" ] },
+				{ "name": "allocAcctIDSource" , "default": null,  "type": [ "null", "long" ] },
+				{ "name": "allocSettlCurrency" , "default": null,  "type": [ "null", "double" ] },
+				{ "name": "individualAllocID" , "default": null,  "type": [ "null", "string" ] },
+				{ "name": "noNestedPartyIDs" , "default": null,  "type": [ "null", "long" ] },
+				{ "name": "allocQty" , "default": null,  "type": [ "null", "double" ] }
+			]
+		}, "default": null,  "type": [ "null", { "type":"array","items": {
+			"type": "record",
+			"name": "AllocsType",
+			"fields": [
+				{ "name": "allocAccount" , "default": null,  "type": [ "null", "string" ] },
+				{ "name": "noNestedPartyIDs" , "default": null,  "type": [ "null", "long" ] },
+				{ "name": "allocQty" , "default": null,  "type": [ "null", "double" ] }
+			]
+		}} ] },
+		{ "name": "processCode" , "default": null, "type": [ "null", "string" ] },
+		{ "name": "named" , "default": null, "type": [ "null", "AllocsType" ] }
+	]
+}
