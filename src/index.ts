@@ -82,5 +82,5 @@ function convertType(type: Type, buffer: string[]): string {
 
 function convertFieldDec(field: Field, buffer: string[]): string {
 	// Union Type
-	return `\t${field.name}${isOptional(field.type) && "?"}: ${convertType(field.type, buffer)};`;
+	return `\t${field.name}${isOptional(field.type) ? "?" : ""}: ${convertType(field.type, buffer)};`;
 }
