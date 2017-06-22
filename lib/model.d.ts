@@ -37,3 +37,5 @@ export declare function isRecordType(type: BaseType): type is RecordType;
 export declare function isArrayType(type: BaseType): type is ArrayType;
 export declare function isMapType(type: BaseType): type is MapType;
 export declare function isEnumType(type: BaseType): type is EnumType;
+export declare function isUnion(type: Type): type is NamedType[];
+export declare function isOptional(type: Type): boolean;
