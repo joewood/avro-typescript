@@ -13,7 +13,7 @@ export {
 } from "./model";
 
 /** Convert a primitive type from avro to TypeScript */
-function convertPrimitive(avroType: string): string {
+export function convertPrimitive(avroType: string): string {
 	switch (avroType) {
 		case "long":
 		case "int":
