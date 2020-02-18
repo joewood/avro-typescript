@@ -1,5 +1,5 @@
 {
-  "name": "avro-typescript",
+  "name": "@mediatoolkit/avro-typescript",
   "version": "0.0.5",
   "description": "TypeSript code generator for Apache Avro types",
   "main": "./lib/index.js",
