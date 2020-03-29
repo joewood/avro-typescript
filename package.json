@@ -3,11 +3,16 @@
   "version": "0.0.5",
   "description": "TypeSript code generator for Apache Avro types",
   "main": "./lib/index.js",
+  "typings": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "tsc -p . && tsc -p test/ && node test/test.js"
+    "test": "jest",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -26,6 +31,21 @@
   },
   "homepage": "https://github.com/joewood/avro-typescript#readme",
   "devDependencies": {
-    "@types/node": "^7.0.22"
+    "@types/jest": "^25.1.4",
+    "@types/node": "^7.0.22",
+    "jest": "^25.2.4",
+    "ts-jest": "^25.2.1",
+    "typescript": "^3.8.3"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ]
   }
 }
