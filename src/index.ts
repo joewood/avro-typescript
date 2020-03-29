@@ -7,9 +7,10 @@ import {
 	isMapType,
 	RecordType,
 	EnumType,
-	isOptional
+	isOptional,
+	isLogicalType
 } from "./model";
-export { RecordType } from "./model";
+export { RecordType, Field } from "./model";
 /** Convert a primitive type from avro to TypeScript */
 function convertPrimitive(avroType: string): string {
 	switch (avroType) {
@@ -74,6 +75,8 @@ function convertType(type: Type, buffer: string[]): string {
 	} else if (isEnumType(type)) {
 		// array, call recursively for the array element type
 		return convertEnum(type, buffer);
+	} else if (isLogicalType(type)) {
+		return convertType(type.type, buffer)
 	} else {
 		console.error("Cannot work out type", type);
 		return "UNKNOWN";

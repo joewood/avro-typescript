@@ -3,7 +3,7 @@
 export interface Schema {}
 
 export type Type = NameOrType | NameOrType[];
-export type NameOrType = TypeNames | RecordType | ArrayType | NamedType;
+export type NameOrType = TypeNames | RecordType | ArrayType | NamedType | LogicalType;
 export type TypeNames = "record" | "array" | "null" | "map" | string;
 
 export interface Field {
@@ -42,6 +42,10 @@ export interface NamedType extends BaseType {
 	type: string;
 }
 
+export interface LogicalType extends BaseType {
+	logicalType: string
+}
+
 export function isRecordType(type: BaseType): type is RecordType {
 	return type.type === "record";
 }
@@ -69,4 +73,8 @@ export function isOptional(type: Type): boolean {
 			return t1 === "null";
 		}
 	}
+}
+
+export function isLogicalType(type: Type): type is LogicalType {
+	return typeof type !== 'string' && 'logicalType' in type
 }
