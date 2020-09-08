@@ -1,6 +1,6 @@
 {
     "name": "avro-typescript",
-    "version": "0.0.6",
+    "version": "1.0.0",
     "description": "TypeScript code generator for Apache Avro types",
     "main": "./lib/index.js",
     "typings": "lib/index.d.ts",
