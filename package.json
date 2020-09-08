@@ -1,51 +1,51 @@
 {
-  "name": "avro-typescript",
-  "version": "0.0.5",
-  "description": "TypeSript code generator for Apache Avro types",
-  "main": "./lib/index.js",
-  "typings": "lib/index.d.ts",
-  "files": [
-    "lib"
-  ],
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "jest",
-    "build": "tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joewood/avro-typescript.git"
-  },
-  "readme": "READMD.md",
-  "types": "./lib/index.d.ts",
-  "keywords": [
-    "avro",
-    "typescript"
-  ],
-  "author": "Joe Wood",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/joewood/avro-typescript/issues"
-  },
-  "homepage": "https://github.com/joewood/avro-typescript#readme",
-  "devDependencies": {
-    "@types/jest": "^25.1.4",
-    "@types/node": "^7.0.22",
-    "jest": "^25.2.4",
-    "ts-jest": "^25.2.1",
-    "typescript": "^3.8.3"
-  },
-  "jest": {
-    "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    "name": "avro-typescript",
+    "version": "0.0.6",
+    "description": "TypeScript code generator for Apache Avro types",
+    "main": "./lib/index.js",
+    "typings": "lib/index.d.ts",
+    "files": [
+        "lib"
+    ],
+    "directories": {
+        "test": "test"
     },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js"
-    ]
-  }
+    "scripts": {
+        "test": "jest",
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/joewood/avro-typescript.git"
+    },
+    "readme": "README.md",
+    "types": "./lib/index.d.ts",
+    "keywords": [
+        "avro",
+        "typescript"
+    ],
+    "author": "Joe Wood",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/joewood/avro-typescript/issues"
+    },
+    "homepage": "https://github.com/joewood/avro-typescript#readme",
+    "devDependencies": {
+        "@types/jest": "^26.0.13",
+        "@types/node": "^14.6.4",
+        "jest": "^26.4.2",
+        "ts-jest": "^26.3.0",
+        "typescript": "^4.0.2"
+    },
+    "jest": {
+        "transform": {
+            ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+        },
+        "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+        "moduleFileExtensions": [
+            "ts",
+            "tsx",
+            "js"
+        ]
+    }
 }
