@@ -1,6 +1,6 @@
 /**** Contains the Interfaces and Type Guards for Avro schema */
 
-export interface Schema {}
+export type Schema = RecordType | EnumType;
 
 export type Type = NameOrType | NameOrType[];
 export type NameOrType = TypeNames | RecordType | ArrayType | NamedType | LogicalType;

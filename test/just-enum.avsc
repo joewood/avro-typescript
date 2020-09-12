@@ -1,0 +1,6 @@
+{
+    "type": "enum",
+    "name": "CompanySize",
+    "namespace": "com.example.avro",
+    "symbols": ["SMALL", "MEDIUM", "LARGE"]
+}

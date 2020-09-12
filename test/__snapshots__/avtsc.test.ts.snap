@@ -21,3 +21,8 @@ export interface ExampleType {
 }
 "
 `;
+
+exports[`enumToTypesScript it should generate an enum 1`] = `
+"export enum CompanySize { SMALL, MEDIUM, LARGE };
+"
+`;

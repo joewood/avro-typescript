@@ -1,5 +1,6 @@
 import * as fs from "fs";
 import { avroToTypeScript, RecordType } from "../src";
+import { Schema } from "../src/model";
 
 describe("avroToTypeScript", () => {
     test("it should generate an interface", () => {
@@ -9,7 +10,7 @@ describe("avroToTypeScript", () => {
     });
 
     test("it should correctly type strings with logicalType", () => {
-        const schema: RecordType = {
+        const schema: Schema = {
             type: "record",
             name: "datedRecord",
             fields: [
@@ -21,6 +22,23 @@ describe("avroToTypeScript", () => {
                     },
                 },
             ],
+        };
+        expect(avroToTypeScript(schema)).not.toEqual(expect.stringContaining("UNKNOWN"));
+    });
+});
+
+describe("enumToTypesScript", () => {
+    test("it should generate an enum", () => {
+        const schemaText = fs.readFileSync(__dirname + "/just-enum.avsc", "utf-8");
+        const schema = JSON.parse(schemaText);
+        expect(avroToTypeScript(schema as RecordType)).toMatchSnapshot();
+    });
+
+    test("it should correctly type strings with logicalType", () => {
+        const schema: Schema = {
+            type: "enum",
+            name: "CompanySize",
+            symbols: ["SMALL", "MEDIUM", "LARGE"],
         };
 
         expect(avroToTypeScript(schema)).not.toEqual(expect.stringContaining("UNKNOWN"));

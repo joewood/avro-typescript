@@ -3,12 +3,12 @@ export {
     Field,
     isArrayType,
     isEnumType,
+    isLogicalType,
     isMapType,
     isOptional,
     isRecordType,
     RecordType,
     Type,
-    isLogicalType,
 } from "./model";
 
 import {
@@ -16,12 +16,13 @@ import {
     Field,
     isArrayType,
     isEnumType,
+    isLogicalType,
     isMapType,
     isOptional,
     isRecordType,
     RecordType,
+    Schema,
     Type,
-    isLogicalType,
 } from "./model";
 
 /** Convert a primitive type from avro to TypeScript */
@@ -44,9 +45,11 @@ export function convertPrimitive(avroType: string): string {
 }
 
 /** Converts an Avro record type to a TypeScript file */
-export function avroToTypeScript(recordType: RecordType): string {
+export function avroToTypeScript(schema: Schema): string {
     const output: string[] = [];
-    convertRecord(recordType, output);
+    if (isEnumType(schema)) convertEnum(schema, output);
+    else if (isRecordType(schema)) convertRecord(schema, output);
+    else throw "Unknown top level type " + (schema as unknown)["type"];
     return output.join("\n");
 }
 
