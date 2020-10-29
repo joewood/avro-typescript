@@ -1,6 +1,9 @@
 /**** Contains the Interfaces and Type Guards for Avro schema */
 
 export type Schema = RecordType | EnumType;
+export interface ConversionOptions {
+    logicalTypes?: { [type: string]: string };
+}
 
 export type Type = NameOrType | NameOrType[];
 export type NameOrType = TypeNames | RecordType | ArrayType | NamedType | LogicalType;

@@ -22,6 +22,15 @@ export interface ExampleType {
 "
 `;
 
+exports[`avroToTypeScript it should support overriding logical types 1`] = `
+"export interface logicalOverrides {
+	eventDate: Date;
+	startTime: Date;
+	displayTime: string;
+}
+"
+`;
+
 exports[`enumToTypesScript it should generate an enum 1`] = `
 "export enum CompanySize { SMALL = 'SMALL', MEDIUM = 'MEDIUM', LARGE = 'LARGE' };
 "

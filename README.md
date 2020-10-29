@@ -20,6 +20,57 @@ const schema = JSON.parse(schemaText) as RecordType;
 console.log(avroToTypeScript(schema as RecordType));
 ```
 
+## Override logicalTypes
+
+Tools like [avsc](https://github.com/mtth/avsc) allow you to [override the serialization/deserialization of LogicalTypes](https://github.com/mtth/avsc/wiki/Advanced-usage#logical-types),
+ say from numbers to native JS Date objects, in this case we want to generate the typescript type as 'Date', not 'number'.
+ Therefore, you can pass in a map 'logicalTypes' to the options to override the outputted TS type for the schema logicalType.
+ 
+For example:
+
+```typescript
+const schema: Schema = {
+    type: "record",
+    name: "logicalOverrides",
+    fields: [
+        {
+            name: "eventDate",
+            type: {
+                type: "int",
+                logicalType: "date",
+            },
+        },
+        {
+            name: "startTime",
+            type: {
+                type: "int",
+                logicalType: "timestamp-millis",
+            },
+        },
+        {
+            name: "displayTime",
+            type: {
+                type: "string",
+                logicalType: "iso-datetime",
+            },
+        },
+    ],
+};
+const actual = avroToTypeScript(schema, {
+logicalTypes: {
+    date: 'Date',
+    'timestamp-millis': 'Date',
+}
+});
+
+// this will output
+export interface logicalOverrides {
+    eventDate: Date;
+    startTime: Date;
+    displayTime: string;
+}
+```
+
 ## Features
 
 Most Avro features are supported, including:
