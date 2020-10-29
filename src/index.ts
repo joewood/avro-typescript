@@ -36,7 +36,7 @@ export function convertPrimitive(avroType: string): string {
         case "bytes":
             return "Buffer";
         case "null":
-            return "null | undefined";
+            return "null";
         case "boolean":
             return "boolean";
         default:
@@ -66,7 +66,7 @@ export function convertRecord(recordType: RecordType, fileBuffer: string[]): str
 
 /** Convert an Avro Enum type. Return the name, but add the definition to the file */
 export function convertEnum(enumType: EnumType, fileBuffer: string[]): string {
-    const enumDef = `export enum ${enumType.name} { ${enumType.symbols.join(", ")} };\n`;
+    const enumDef = `export enum ${enumType.name} { ${enumType.symbols.map(sym => `${sym} = '${sym}'`).join(", ")} };\n`;
     fileBuffer.push(enumDef);
     return enumType.name;
 }
@@ -101,5 +101,5 @@ export function convertType(type: Type, buffer: string[]): string {
 
 export function convertFieldDec(field: Field, buffer: string[]): string {
     // Union Type
-    return `\t${field.name}${isOptional(field.type) ? "?" : ""}: ${convertType(field.type, buffer)};`;
+    return `\t${field.name}: ${convertType(field.type, buffer)};`;
 }

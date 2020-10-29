@@ -1,28 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`avroToTypeScript it should generate an interface 1`] = `
-"export enum numberEnumType { ONE, TWO };
+"export enum numberEnumType { ONE = 'ONE', TWO = 'TWO' };
 
 export interface AllocsType {
-	allocAccount?: null | undefined | string;
-	noNestedPartyIDs?: null | undefined | number;
-	allocQty?: null | undefined | number;
+	allocAccount: null | string;
+	noNestedPartyIDs: null | number;
+	allocQty: null | number;
 }
 
 export interface ExampleType {
-	unionEnum?: null | undefined | string | numberEnumType;
+	unionEnum: null | string | numberEnumType;
 	mandatoryString: string;
-	adouble?: null | undefined | number;
-	astring?: null | undefined | string;
-	amap?: null | undefined | string | { [index:string]:numberEnumType };
-	recordArray?: null | undefined | AllocsType[];
-	processCode?: null | undefined | string;
-	named?: null | undefined | AllocsType;
+	adouble: null | number;
+	astring: null | string;
+	amap: null | string | { [index:string]:numberEnumType };
+	recordArray: null | AllocsType[];
+	processCode: null | string;
+	named: null | AllocsType;
 }
 "
 `;
 
 exports[`enumToTypesScript it should generate an enum 1`] = `
-"export enum CompanySize { SMALL, MEDIUM, LARGE };
+"export enum CompanySize { SMALL = 'SMALL', MEDIUM = 'MEDIUM', LARGE = 'LARGE' };
 "
 `;
