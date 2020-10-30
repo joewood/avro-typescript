@@ -1,6 +1,6 @@
 {
-    "name": "avro-typescript",
-    "version": "1.1.0",
+    "name": "bhishp-avro-typescript",
+    "version": "1.0.0",
     "description": "TypeScript code generator for Apache Avro types",
     "main": "./lib/index.js",
     "typings": "lib/index.d.ts",
@@ -17,7 +17,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/joewood/avro-typescript.git"
+        "url": "git+https://github.com/bhishp/avro-typescript.git"
     },
     "readme": "README.md",
     "types": "./lib/index.d.ts",
@@ -25,12 +25,12 @@
         "avro",
         "typescript"
     ],
-    "author": "Joe Wood",
+    "author": "bhishp",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/joewood/avro-typescript/issues"
+        "url": "https://github.com/bhishp/avro-typescript/issues"
     },
-    "homepage": "https://github.com/joewood/avro-typescript#readme",
+    "homepage": "https://github.com/bhishp/avro-typescript#readme",
     "devDependencies": {
         "@types/jest": "^26.0.13",
         "@types/node": "^14.6.4",
