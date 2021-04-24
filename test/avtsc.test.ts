@@ -25,6 +25,46 @@ describe("avroToTypeScript", () => {
         };
         expect(avroToTypeScript(schema)).not.toEqual(expect.stringContaining("UNKNOWN"));
     });
+
+    test("it should support overriding logical types", () => {
+        const schema: Schema = {
+            type: "record",
+            name: "logicalOverrides",
+            fields: [
+                {
+                    name: "eventDate",
+                    type: {
+                        type: "int",
+                        logicalType: "date",
+                    },
+                },
+                {
+                    name: "startTime",
+                    type: {
+                        type: "int",
+                        logicalType: "timestamp-millis",
+                    },
+                },
+                {
+                    name: "displayTime",
+                    type: {
+                        type: "string",
+                        logicalType: "iso-datetime",
+                    },
+                },
+            ],
+        };
+        const actual = avroToTypeScript(schema, {
+            logicalTypes: {
+                date: 'Date',
+                'timestamp-millis': 'Date',
+            }
+        });
+        expect(actual).toMatchSnapshot();
+        expect(actual).not.toEqual(expect.stringContaining("eventDate: number"));
+        expect(actual).not.toEqual(expect.stringContaining("startTime: number"));
+        expect(actual).toEqual(expect.stringContaining("displayTime: string"));
+    });
 });
 
 describe("enumToTypesScript", () => {
