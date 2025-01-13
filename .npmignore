@@ -2,3 +2,4 @@
 /test
 /.vscode
 tsconfig.json
+.eslint.config.mjs

@@ -1,12 +1,6 @@
 {
-    "cSpell.words": [
-        "Allocs",
-        "Settl",
-        "adouble",
-        "alloc",
-        "amap",
-        "astring",
-        "avsc",
-        "datetime"
-    ]
+    "cSpell.words": ["adouble", "alloc", "Allocs", "amap", "astring", "avsc", "datetime", "millis", "Settl"],
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true
 }

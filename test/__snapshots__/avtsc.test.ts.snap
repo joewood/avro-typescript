@@ -18,6 +18,7 @@ export interface ExampleType {
 	recordArray: null | AllocsType[];
 	processCode: null | string;
 	named: null | AllocsType;
+	fixedField: Uint8Array;
 }
 "
 `;

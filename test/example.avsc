@@ -54,6 +54,14 @@
             ]
         },
         { "name": "processCode", "default": null, "type": ["null", "string"] },
-        { "name": "named", "default": null, "type": ["null", "AllocsType"] }
+        { "name": "named", "default": null, "type": ["null", "AllocsType"] },
+        {
+            "name": "fixedField",
+            "type": {
+                "type": "fixed",
+                "name": "FixedField",
+                "size": 32
+            }
+        }
     ]
 }

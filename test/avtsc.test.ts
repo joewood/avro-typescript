@@ -56,9 +56,9 @@ describe("avroToTypeScript", () => {
         };
         const actual = avroToTypeScript(schema, {
             logicalTypes: {
-                date: 'Date',
-                'timestamp-millis': 'Date',
-            }
+                date: "Date",
+                "timestamp-millis": "Date",
+            },
         });
         expect(actual).toMatchSnapshot();
         expect(actual).not.toEqual(expect.stringContaining("eventDate: number"));

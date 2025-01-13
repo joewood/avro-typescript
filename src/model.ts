@@ -6,8 +6,8 @@ export interface ConversionOptions {
 }
 
 export type Type = NameOrType | NameOrType[];
-export type NameOrType = TypeNames | RecordType | ArrayType | NamedType | LogicalType;
-export type TypeNames = "record" | "array" | "null" | "map" | string;
+export type NameOrType = TypeNames | RecordType | ArrayType | NamedType | LogicalType | FixedType;
+export type TypeNames = "record" | "array" | "null" | "map" | "fixed" | string;
 
 export interface Field {
     name: string;
@@ -41,6 +41,12 @@ export interface EnumType extends BaseType {
     symbols: string[];
 }
 
+export interface FixedType extends BaseType {
+    type: "fixed";
+    name: string;
+    size: number;
+}
+
 export interface NamedType extends BaseType {
     type: string;
 }
@@ -63,6 +69,10 @@ export function isMapType(type: BaseType): type is MapType {
 
 export function isEnumType(type: BaseType): type is EnumType {
     return type.type === "enum";
+}
+
+export function isFixedType(type: BaseType): type is FixedType {
+    return type.type === "fixed";
 }
 
 export function isUnion(type: Type): type is NamedType[] {

@@ -17,9 +17,9 @@ import {
     Field,
     isArrayType,
     isEnumType,
+    isFixedType,
     isLogicalType,
     isMapType,
-    isOptional,
     isRecordType,
     RecordType,
     Schema,
@@ -67,7 +67,7 @@ export function convertRecord(recordType: RecordType, fileBuffer: string[], opts
 
 /** Convert an Avro Enum type. Return the name, but add the definition to the file */
 export function convertEnum(enumType: EnumType, fileBuffer: string[]): string {
-    const enumDef = `export enum ${enumType.name} { ${enumType.symbols.map(sym => `${sym} = '${sym}'`).join(", ")} };\n`;
+    const enumDef = `export enum ${enumType.name} { ${enumType.symbols.map((sym) => `${sym} = '${sym}'`).join(", ")} };\n`;
     fileBuffer.push(enumDef);
     return enumType.name;
 }
@@ -97,6 +97,8 @@ export function convertType(type: Type, buffer: string[], opts: ConversionOption
             return opts.logicalTypes[type.logicalType];
         }
         return convertType(type.type, buffer, opts);
+    } else if (isFixedType(type)) {
+        return "Uint8Array";
     } else {
         console.error("Cannot work out type", type);
         return "UNKNOWN";
@@ -104,6 +106,6 @@ export function convertType(type: Type, buffer: string[], opts: ConversionOption
 }
 
 export function convertFieldDec(field: Field, buffer: string[], opts: ConversionOptions): string {
-    // Union Type
-    return `\t${field.name}: ${convertType(field.type, buffer, opts)};`;
+    let typeName = convertType(field.type, buffer, opts);
+    return `\t${field.name}: ${typeName};`;
 }
