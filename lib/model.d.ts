@@ -1,9 +1,9 @@
 /**** Contains the Interfaces and Type Guards for Avro schema */
 export interface Schema {
 }
-export declare type Type = NameOrType | NameOrType[];
-export declare type NameOrType = TypeNames | RecordType | ArrayType | NamedType | LogicalType;
-export declare type TypeNames = "record" | "array" | "null" | "map" | string;
+export type Type = NameOrType | NameOrType[];
+export type NameOrType = TypeNames | RecordType | ArrayType | NamedType | LogicalType;
+export type TypeNames = "record" | "array" | "null" | "map" | string;
 export interface Field {
     name: string;
     type: Type;

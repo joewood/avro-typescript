@@ -1,7 +1,7 @@
 {
   "name": "avro-typescript",
   "version": "0.0.7",
-  "description": "TypeSript code generator for Apache Avro types",
+  "description": "TypeScript code generator for Apache Avro types",
   "main": "./lib/index.js",
   "directories": {
     "lib": "lib",
@@ -23,11 +23,8 @@
   },
   "homepage": "https://github.com/joewood/avro-typescript#readme",
   "devDependencies": {
-    "@types/node": "^7.0.22"
-  },
-  "dependencies": {
-    "file-system": "^2.2.2",
-    "typescript": "^2.6.2"
+    "@types/node": "^22.14.1",
+    "typescript": "^5.8.3"
   },
   "private": true
 }
