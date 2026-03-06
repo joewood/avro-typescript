@@ -1,5 +1,6 @@
 {
     "type": "record",
+    "namespace": "avro-typescript",
     "name": "ExampleType",
     "fields": [
         {
@@ -50,6 +51,30 @@
                             { "name": "allocQty", "default": null, "type": ["null", "double"] }
                         ]
                     }
+                }
+            ]
+        },
+        {
+            "name": "unionRecord",
+            "default": null,
+            "type": [
+                "null",
+                {
+                    "type": "record",
+                    "name": "Option1",
+                    "fields": [
+                        { "name": "id", "type": "string" },
+                        { "name": "refKey", "type": "string" }
+                    ]
+                },
+                {
+                    "type": "record",
+                    "name": "Option2",
+                    "fields": [
+                        { "name": "id", "type": "string" },
+                        { "name": "orderNumber", "type": "string" },
+                        { "name": "quantity", "type": "long" }
+                    ]
                 }
             ]
         },
