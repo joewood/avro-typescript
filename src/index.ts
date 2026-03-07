@@ -192,7 +192,7 @@ function jsTypeForAvroType(t: NameOrType): string {
         case "array":
             return "array";
         default:
-            return null;
+            return avroType;
     }
 }
 
