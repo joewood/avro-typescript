@@ -56,15 +56,15 @@ export interface Option2 {
 }
 
 export interface ExampleType {
-	unionEnum: { "null": null } | { "string": string } | { "avro-typescript.numberEnumType": numberEnumType };
+	unionEnum: null | { "null": null } | { "string": string } | { "avro-typescript.numberEnumType": numberEnumType };
 	mandatoryString: string;
 	adouble: null | number;
 	astring: null | string;
 	amap: null | string | { [index:string]:numberEnumType };
 	recordArray: null | AllocsType[];
-	unionRecord: { "null": null } | { "avro-typescript.Option1": Option1 } | { "avro-typescript.Option2": Option2 };
+	unionRecord: null | { "null": null } | { "avro-typescript.Option1": Option1 } | { "avro-typescript.Option2": Option2 };
 	processCode: null | string;
-	named: { "null": null } | { "AllocsType": AllocsType };
+	named: null | AllocsType;
 	fixedField: Uint8Array;
 }
 "
@@ -74,9 +74,9 @@ exports[`avroToTypeScript it should generate an interface with wrapped unions 1`
 "export enum numberEnumType { ONE = 'ONE', TWO = 'TWO' };
 
 export interface AllocsType {
-	allocAccount: { "null": null } | { "string": string };
-	noNestedPartyIDs: { "null": null } | { "long": number };
-	allocQty: { "null": null } | { "double": number };
+	allocAccount: null | { "null": null } | { "string": string };
+	noNestedPartyIDs: null | { "null": null } | { "long": number };
+	allocQty: null | { "null": null } | { "double": number };
 }
 
 export interface Option1 {
@@ -91,15 +91,15 @@ export interface Option2 {
 }
 
 export interface ExampleType {
-	unionEnum: { "null": null } | { "string": string } | { "avro-typescript.numberEnumType": numberEnumType };
+	unionEnum: null | { "null": null } | { "string": string } | { "avro-typescript.numberEnumType": numberEnumType };
 	mandatoryString: string;
-	adouble: { "null": null } | { "double": number };
-	astring: { "null": null } | { "string": string };
-	amap: { "null": null } | { "string": string } | { "map": { [index:string]:numberEnumType } };
-	recordArray: { "null": null } | { "array": AllocsType[] };
-	unionRecord: { "null": null } | { "avro-typescript.Option1": Option1 } | { "avro-typescript.Option2": Option2 };
-	processCode: { "null": null } | { "string": string };
-	named: { "null": null } | { "AllocsType": AllocsType };
+	adouble: null | { "null": null } | { "double": number };
+	astring: null | { "null": null } | { "string": string };
+	amap: null | { "null": null } | { "string": string } | { "map": { [index:string]:numberEnumType } };
+	recordArray: null | { "null": null } | { "array": AllocsType[] };
+	unionRecord: null | { "null": null } | { "avro-typescript.Option1": Option1 } | { "avro-typescript.Option2": Option2 };
+	processCode: null | { "null": null } | { "string": string };
+	named: null | { "null": null } | { "AllocsType": AllocsType };
 	fixedField: Uint8Array;
 }
 "
