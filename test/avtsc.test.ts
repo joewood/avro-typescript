@@ -9,6 +9,18 @@ describe("avroToTypeScript", () => {
         expect(avroToTypeScript(schema as RecordType)).toMatchSnapshot();
     });
 
+    test("it should generate an interface with wrapped unions", () => {
+        const schemaText = fs.readFileSync(__dirname + "/example.avsc", "utf-8");
+        const schema = JSON.parse(schemaText);
+        expect(avroToTypeScript(schema as RecordType, { wrapUnions: true })).toMatchSnapshot();
+    });
+
+    test("it should generate an interface with auto-wrapped unions", () => {
+        const schemaText = fs.readFileSync(__dirname + "/example.avsc", "utf-8");
+        const schema = JSON.parse(schemaText);
+        expect(avroToTypeScript(schema as RecordType, { wrapUnions: "auto" })).toMatchSnapshot();
+    });
+
     test("it should correctly type strings with logicalType", () => {
         const schema: Schema = {
             type: "record",

@@ -3,6 +3,7 @@
 export type Schema = RecordType | EnumType;
 export interface ConversionOptions {
     logicalTypes?: { [type: string]: string };
+    wrapUnions?: boolean | "always" | "never" | "auto";
 }
 
 export type Type = NameOrType | NameOrType[];
@@ -22,6 +23,7 @@ export interface BaseType {
 export interface RecordType extends BaseType {
     type: "record";
     name: string;
+    namespace?: string;
     fields: Field[];
 }
 
