@@ -43,7 +43,7 @@
         "jest": "latest",
         "prettier": "latest",
         "ts-jest": "latest",
-        "typescript": "^5.9.3"
+        "typescript": "^6.0.3"
     },
     "jest": {
         "preset": "ts-jest",
